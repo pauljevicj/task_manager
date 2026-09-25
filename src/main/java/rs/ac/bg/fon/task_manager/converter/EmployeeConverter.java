@@ -13,13 +13,17 @@ public class EmployeeConverter implements Converter<Employee, EmployeeRequestDto
 
     @Override
     public Employee toEntity(EmployeeRequestDto r) {
-//        Employee employee = new Employee();
-//        employee.setFullName(r.fullName());
-//        employee.setEmail(r.email());
-//        employee.setPhoneNumber(r.phoneNumber());
-//        employee.setDateOfBirth(r.dateOfBirth());
-//        employee.setSalary(r.salary());
-//        return employee;
         return new Employee(r.fullName(), r.email(), r.phoneNumber(), r.dateOfBirth(), r.salary());
+    }
+
+    public void update(Employee e, EmployeeRequestDto er){
+        if(er == null)
+            return;
+
+        e.setFullName(er.fullName());
+        e.setEmail(er.email());
+        e.setPhoneNumber(er.phoneNumber());
+        e.setDateOfBirth(er.dateOfBirth());
+        e.setSalary(er.salary());
     }
 }
